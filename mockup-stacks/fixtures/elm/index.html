@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harbor</title>
+<style>/*@@CSS@@*/</style>
+</head>
+<body>
+<div class="mockup-control" id="mc">Mockup control:
+  <a href="#">Board</a><a href="#empty">Empty</a><a href="#error">Error</a></div>
+<div id="app"></div>
+<script>/*@@ELM@@*/</script>
+<script>
+  window.__mockupReady = false;
+  var app = Elm.Main.init({ node: document.getElementById("app"), flags: location.hash });
+  function mark() {
+    var h = location.hash;
+    document.querySelectorAll("#mc a").forEach(function (a) {
+      a.className = (a.getAttribute("href") === (h || "#")) ? "on" : "";
+    });
+  }
+  window.addEventListener("hashchange", function () { app.ports.hashChanged.send(location.hash); mark(); });
+  mark();
+  requestAnimationFrame(function () { window.__mockupReady = true; });
+</script>
+</body>
+</html>
