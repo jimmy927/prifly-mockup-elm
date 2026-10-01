@@ -1,6 +1,6 @@
 # prifly-mockup-elm
 
-A mockup recipe for **Elm** web apps, for [prifly](https://github.com/jimmy927/prifly) sessions. When a session is asked
+A mockup recipe for **Elm** web apps, for prifly sessions. When a session is asked
 to mock up a screen of an Elm project, the recipe tells it how to compile the real app with the real `elm make`, pack
 it into one self-contained HTML page and post it with `mcp__prifly__mockup`.
 
