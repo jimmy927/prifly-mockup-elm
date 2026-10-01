@@ -1,0 +1,7 @@
+{
+  "id": "mockup-elm",
+  "name": "Elm mockup recipe",
+  "description": "A prifly mockup recipe for Elm web apps, compiled with the real elm make.",
+  "version": "0.1.0",
+  "mockupStacks": "mockup-stacks"
+}

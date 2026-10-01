@@ -6,16 +6,10 @@ it into one self-contained HTML page and post it with `mcp__prifly__mockup`.
 
 ## Use it in prifly
 
-prifly keeps shared recipe packs as git clones. Add this one in `~/.local/share/prifly/mockup-stacks/packs.json`:
-
-```json
-{ "packs": [{ "name": "prifly-mockup-elm", "url": "https://github.com/jimmy927/prifly-mockup-elm.git" }] }
-```
-
-or set `PRIFLY_MOCKUP_STACK_PACKS="https://github.com/jimmy927/prifly-mockup-elm.git"` in the host's environment. The
-host pulls it in the background (at most once per `PRIFLY_MOCKUP_STACK_PULL_HOURS`, 24 by default) and
-`mockup_recipe` then finds `elm` for any project with an `elm.json`. A recipe in the project's own
-`.prifly/mockup-stacks/` or in the user folder wins over this pack.
+This repo is a prifly extension. In prifly, open **Extensions**, install from the git URL
+`https://github.com/jimmy927/prifly-mockup-elm.git`, then enable it. Sessions then get the recipe from
+`mcp__prifly__mockup_recipe` (layer order: project `.prifly/mockup-stacks/` > user folder > enabled extensions >
+built-in). A project can also copy `mockup-stacks/elm.md` into its own `.prifly/mockup-stacks/`.
 
 ## The recipe
 
@@ -34,7 +28,7 @@ bun scripts/check.ts
 ```
 
 validates every recipe's frontmatter against the schema prifly's loader uses. Inside a prifly checkout,
-`bun run mockup-stacks:check --layer packs` also builds the fixture (needs `elm` on the PATH).
+`bun run mockup-stacks:check --dir <path-to-this-repo>/mockup-stacks` runs the full checker on this folder and also builds the fixture (needs `elm` on the PATH).
 
 ## Screenshots
 
